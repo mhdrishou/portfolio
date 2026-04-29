@@ -82,7 +82,7 @@ export default function Contact() {
             <div className="mt-12 flex gap-4">
               {[
                 { icon: Linkedin, href: "https://linkedin.com/in/muhammed-rishan-29718a407" },
-                { icon: Instagram, href: "https://www.instagram.com/rishouuuu?igsh=MWxhbG41MmQ5NXBwdw%3D%3D&utm_source=qr" }
+                { icon: Instagram, href: "https://www.instagram.com/rishouuuu/" }
               ].map((social, i) => (
                 <a 
                   key={i} 
