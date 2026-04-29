@@ -5,35 +5,20 @@ import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { ChevronDown, ArrowRight, MessageSquare } from 'lucide-react';
 
-const MinimalLoader = () => (
-  <div className="w-full h-full bg-black flex items-center justify-center rounded-3xl border border-white/5">
-    <div className="relative w-12 h-12">
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        {[0, 120, 240].map((angle, i) => (
-          <motion.div
-            key={i}
-            animate={{ 
-              rotate: angle,
-              y: [-10, -20, -20, -10],
-              opacity: [0.5, 1, 1, 0.5]
-            }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="absolute w-1 h-3 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-            style={{ originY: "50%" }}
-          />
-        ))}
-      </motion.div>
-    </div>
-  </div>
-);
-
 const SplineEmbed = dynamic(() => Promise.resolve(function SplineComponent() {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-3xl pointer-events-auto group">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.8, rotateY: 20 }}
+      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+      transition={{ 
+        duration: 1.5, 
+        delay: 0.5, 
+        type: "spring", 
+        stiffness: 50, 
+        damping: 15 
+      }}
+      className="relative w-full h-full overflow-hidden rounded-3xl pointer-events-auto group"
+    >
       {/* Background Mask to blend edges */}
       <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-background via-transparent to-background opacity-20" />
       <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-background via-transparent to-background opacity-20" />
@@ -45,16 +30,16 @@ const SplineEmbed = dynamic(() => Promise.resolve(function SplineComponent() {
         height="100%"
         className="w-[110%] h-[110%] -ml-[5%] -mt-[5%] min-h-[350px] sm:min-h-[440px] md:min-h-full filter grayscale-[0.2] contrast-[1.1]"
         title="3D Robot Model"
-        loading="lazy"
+        loading="eager"
       ></iframe>
       
-      {/* Absolute Bottom Cover to hide "Built with Spline" - using pointer-events-none to allow clicking through the gradient if needed, but keeping it small */}
+      {/* Absolute Bottom Cover to hide "Built with Spline" */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent z-20 pointer-events-none" />
-    </div>
+    </motion.div>
   );
 }), { 
   ssr: false,
-  loading: () => <MinimalLoader />
+  loading: () => <div className="w-full h-full bg-primary/5 animate-pulse rounded-3xl" />
 });
 
 const nameChars = "Muhammed Rishan".split("");
@@ -146,10 +131,10 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.8,
-                      delay: 0.5 + (wordIndex * 10 + charIndex) * 0.05,
+                      duration: 0.6,
+                      delay: 0.2 + (wordIndex * 10 + charIndex) * 0.03,
                       type: "spring",
-                      damping: 12,
+                      damping: 20,
                       stiffness: 100
                     }}
                     className="inline-block"
