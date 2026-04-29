@@ -4,8 +4,10 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CursorGlow from '@/components/CursorGlow';
-import ParticleBackground from '@/components/ParticleBackground';
+import dynamic from 'next/dynamic';
+
+const CursorGlow = dynamic(() => import('@/components/CursorGlow'), { ssr: false });
+const ParticleBackground = dynamic(() => import('@/components/ParticleBackground'), { ssr: false });
 
 const spaceMono = Space_Mono({
   weight: ['400', '700'],

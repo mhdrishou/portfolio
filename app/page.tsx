@@ -1,9 +1,11 @@
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
+import dynamic from 'next/dynamic';
+
+const About = dynamic(() => import('@/components/About'), { ssr: false });
+const Services = dynamic(() => import('@/components/Services'), { ssr: false });
+const Skills = dynamic(() => import('@/components/Skills'), { ssr: false });
+const Projects = dynamic(() => import('@/components/Projects'), { ssr: false });
+const Contact = dynamic(() => import('@/components/Contact'), { ssr: false });
 
 export default function Home() {
   return (
