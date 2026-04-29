@@ -4,10 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import dynamic from 'next/dynamic';
-
-const CursorGlow = dynamic(() => import('@/components/CursorGlow'), { ssr: false });
-const ParticleBackground = dynamic(() => import('@/components/ParticleBackground'), { ssr: false });
+import ClientEffects from '@/components/ClientEffects';
 
 const spaceMono = Space_Mono({
   weight: ['400', '700'],
@@ -35,8 +32,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className={`${dmSans.variable} ${spaceMono.variable} font-sans antialiased relative min-h-screen selection:bg-primary selection:text-black`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <CursorGlow />
-          <ParticleBackground />
+          <ClientEffects />
           <div className="relative z-10 flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">{children}</main>

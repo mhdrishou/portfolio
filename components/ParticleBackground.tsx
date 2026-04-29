@@ -88,7 +88,7 @@ export default function ParticleBackground() {
         }
         
         this.baseY -= 0.2;
-        if (this.baseY < 0) {
+        if (this.baseY < 0 && canvas) {
           this.baseY = canvas.height;
           this.baseX = Math.random() * canvas.width;
           this.x = this.baseX;
@@ -98,6 +98,7 @@ export default function ParticleBackground() {
     }
 
     const resize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initParticles();
@@ -107,6 +108,7 @@ export default function ParticleBackground() {
     resize();
 
     function initParticles() {
+      if (!canvas) return;
       particles = [];
       const numberOfParticles = Math.min((canvas.width * canvas.height) / 10000, 150);
       for (let i = 0; i < numberOfParticles; i++) {
@@ -163,6 +165,7 @@ export default function ParticleBackground() {
     }
 
     function connect() {
+      if (!canvas || !ctx) return;
       let opacityValue = 1;
       for (let a = 0; a < particles.length; a++) {
         for (let b = a; b < particles.length; b++) {
