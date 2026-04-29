@@ -5,6 +5,32 @@ import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { ChevronDown, ArrowRight, MessageSquare } from 'lucide-react';
 
+const MinimalLoader = () => (
+  <div className="w-full h-full bg-black flex items-center justify-center rounded-3xl border border-white/5">
+    <div className="relative w-12 h-12">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        {[0, 120, 240].map((angle, i) => (
+          <motion.div
+            key={i}
+            animate={{ 
+              rotate: angle,
+              y: [-10, -20, -20, -10],
+              opacity: [0.5, 1, 1, 0.5]
+            }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="absolute w-1 h-3 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+            style={{ originY: "50%" }}
+          />
+        ))}
+      </motion.div>
+    </div>
+  </div>
+);
+
 const SplineEmbed = dynamic(() => Promise.resolve(function SplineComponent() {
   return (
     <div className="relative w-full h-full overflow-hidden rounded-3xl pointer-events-auto group">
@@ -17,7 +43,7 @@ const SplineEmbed = dynamic(() => Promise.resolve(function SplineComponent() {
         frameBorder="0" 
         width="100%" 
         height="100%"
-        className="w-[110%] h-[110%] -ml-[5%] -mt-[5%] min-h-[440px] md:min-h-full filter grayscale-[0.2] contrast-[1.1]"
+        className="w-[110%] h-[110%] -ml-[5%] -mt-[5%] min-h-[350px] sm:min-h-[440px] md:min-h-full filter grayscale-[0.2] contrast-[1.1]"
         title="3D Robot Model"
         loading="lazy"
       ></iframe>
@@ -28,7 +54,7 @@ const SplineEmbed = dynamic(() => Promise.resolve(function SplineComponent() {
   );
 }), { 
   ssr: false,
-  loading: () => <div className="w-full h-full bg-primary/5 animate-pulse rounded-3xl border border-primary/10" />
+  loading: () => <MinimalLoader />
 });
 
 const nameChars = "Muhammed Rishan".split("");
