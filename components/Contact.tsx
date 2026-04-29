@@ -98,7 +98,7 @@ export default function Contact() {
           </div>
 
           {/* Right - Form */}
-          <div className="glass-card p-8 rounded-3xl border border-white/5">
+          <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/5">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>

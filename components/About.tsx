@@ -75,7 +75,7 @@ export default function About() {
           animate={isInView || prefersReducedMotion ? "visible" : "hidden"}
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
-          <motion.div variants={itemVariants} className="relative aspect-square max-w-md mx-auto w-full">
+          <motion.div variants={itemVariants} className="relative aspect-square max-w-[280px] sm:max-w-md mx-auto w-full mb-8 lg:mb-0">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary to-primary-dark rounded-[30%_70%_70%_30%/30%_30%_70%_70%] animate-[blob_8s_ease-in-out_infinite] opacity-50 blur-2xl" />
             <div className="absolute inset-4 bg-gradient-to-bl from-background to-background/50 backdrop-blur-xl rounded-[40%_60%_60%_40%/40%_40%_60%_60%] border border-white/10 flex items-center justify-center overflow-hidden">
               <div className="text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/20">
@@ -99,7 +99,7 @@ export default function About() {
               Creative and results-oriented Freelance Web Developer & Designer with 2+ years of experience building modern web applications, portfolio websites, and AI-powered solutions. Founder of an independent freelance agency specializing in vibe coding, UI/UX design, and AI chatbot integration.
             </motion.p>
 
-            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <motion.div variants={containerVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
               {stats.map((stat, i) => (
                 <motion.div 
                   key={i} 

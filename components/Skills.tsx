@@ -38,7 +38,7 @@ export default function Skills() {
           <div className="w-20 h-1 bg-primary rounded-full mx-auto" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {skillGroups.map((group, groupIndex) => (
             <div key={groupIndex}>
               <h3 className="text-2xl font-display font-bold mb-6 text-primary">{group.title}</h3>

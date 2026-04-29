@@ -122,7 +122,7 @@ export default function Hero() {
             Available for Freelance Work
           </motion.div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-6 flex flex-wrap">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-6 flex flex-wrap">
             {"Muhammed Rishan".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="whitespace-nowrap mr-[0.3em] last:mr-0">
                 {word.split("").map((char, charIndex) => (
@@ -146,7 +146,7 @@ export default function Hero() {
             ))}
           </h1>
 
-          <div className="h-16 md:h-8 mb-8 text-xl md:text-2xl text-foreground/70 font-mono flex items-center flex-wrap">
+          <div className="h-20 sm:h-16 md:h-8 mb-8 text-lg sm:text-xl md:text-2xl text-foreground/70 font-mono flex items-center flex-wrap">
             {typedText}
             <motion.span
               animate={prefersReducedMotion ? {} : { opacity: [1, 0] }}
@@ -181,14 +181,15 @@ export default function Hero() {
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2, duration: 0.5 }}
-            className="flex flex-wrap gap-4"
           >
-            <MagneticButton href="#projects" primary>
-              View My Work <ArrowRight className="w-4 h-4" />
-            </MagneticButton>
-            <MagneticButton href="#contact">
-              Let's Talk <MessageSquare className="w-4 h-4" />
-            </MagneticButton>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
+              <MagneticButton href="#projects" primary>
+                View My Work <ArrowRight className="w-4 h-4" />
+              </MagneticButton>
+              <MagneticButton href="#contact">
+                Let's Talk <MessageSquare className="w-4 h-4" />
+              </MagneticButton>
+            </div>
           </motion.div>
         </div>
 

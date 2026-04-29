@@ -95,7 +95,7 @@ export default function Services() {
             return (
               <motion.div key={index} variants={itemVariants} className="h-full">
                 <Tilt options={prefersReducedMotion ? { max: 0, scale: 1 } : defaultTiltOptions} className="h-full">
-                  <div className="glass-card h-full p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-colors duration-500 group relative overflow-hidden flex flex-col">
+                  <div className="glass-card h-full p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-colors duration-500 group relative overflow-hidden flex flex-col">
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 pointer-events-none" />
                     
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
