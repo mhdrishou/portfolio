@@ -28,13 +28,13 @@ const SplineEmbed = dynamic(() => Promise.resolve(function SplineComponent() {
         frameBorder="0" 
         width="100%" 
         height="100%"
-        className="w-[110%] h-[110%] -ml-[5%] -mt-[5%] min-h-[350px] sm:min-h-[440px] md:min-h-full filter grayscale-[0.2] contrast-[1.1]"
+        className="w-[120%] h-[120%] -ml-[10%] -mt-[5%] min-h-[420px] sm:min-h-[500px] md:min-h-full filter grayscale-[0.2] contrast-[1.1]"
         title="3D Robot Model"
         loading="eager"
       ></iframe>
       
       {/* Absolute Bottom Cover to hide "Built with Spline" */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent z-20 pointer-events-none" />
     </motion.div>
   );
 }), { 
