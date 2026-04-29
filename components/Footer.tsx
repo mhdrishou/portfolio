@@ -13,6 +13,7 @@ export default function Footer() {
             <a href="#services" className="hover:text-primary">Services</a>
             <a href="#projects" className="hover:text-primary">Projects</a>
             <a href="#contact" className="hover:text-primary">Contact</a>
+            <a href="https://www.instagram.com/rishouuuu?igsh=MWxhbG41MmQ5NXBwdw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Instagram</a>
           </div>
 
           <p className="text-xs text-foreground/30">
